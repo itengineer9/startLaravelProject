@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item" active>
-                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="http://a-alhamad.com">Home</a>
                 </li>
                 <li class="nav-item">
                 <li class="nav-item">

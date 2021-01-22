@@ -9,6 +9,8 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
+FB-ID 748644666070485
+FB-PS da319e20765cf3f633d7bb0beb30cd45
 */
 
 Route::get('/', function () {
@@ -26,3 +28,7 @@ Route::get('/strap', function (){
 Route::get('/student', function (){
     return view('student');
 })->name('student');
+
+Route::get('/redirect/{service}', 'SocialiteController@redirect');
+
+Route::get('/callback/{service}', 'SocialiteController@callback');
