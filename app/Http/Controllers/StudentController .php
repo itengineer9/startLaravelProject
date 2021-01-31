@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class StudentController extends Controller
 {
@@ -19,7 +18,7 @@ class StudentController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //$this->middleware('guest');
     }
 
     /**
@@ -27,14 +26,15 @@ class StudentController extends Controller
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
-     */
-    protected function validator(array $data)
+     *    protected function validator(array $data)
     {
-        return Validator::make($data, [
-            'fname' => ['required', 'string', 'max:255'],
-            'sname' => ['required', 'string', 'max:255'],
-        ]);
+    return Validator::make($data, [
+    'fname' => ['required', 'string', 'max:255'],
+    'sname' => ['required', 'string', 'max:255'],
+    ]);
     }
+     */
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -42,11 +42,12 @@ class StudentController extends Controller
      * @param  array  $data
      * @return \App\User
      */
-    protected function create(array $data)
+    protected function saveData(Request $data)
     {
-        return Student::create([
-            'firstName' => $data['fname'],
-            'secondName' => $data['sname'],
+         Student::create([
+            'firstName' => $data->fname,
+            'secondName' => $data->sname,
         ]);
+        //return 'Saved Successfully';
     }
 }

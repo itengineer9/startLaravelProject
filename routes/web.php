@@ -25,10 +25,21 @@ Route::get('/strap', function (){
     return view('bootstraps');
 })->name('strap');
 
-Route::get('/student', function (){
-    return view('student');
-})->name('student');
+Route::post('/student', 'StudentController@saveData')->name('student');
 
 Route::get('/redirect/{service}', 'SocialiteController@redirect');
 
 Route::get('/callback/{service}', 'SocialiteController@callback');
+
+Route::group([
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ],
+    function(){
+        Route::group(['prefix'=>'offers'],function (){
+            Route::get('offer', 'CrudController@getOffer');
+            Route::get('store', 'CrudController@store');
+            Route::get('create', 'CrudController@create');
+            Route::post('store', 'CrudController@store')->name('offers.store');
+        });
+});

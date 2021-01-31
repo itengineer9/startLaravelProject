@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-xl-12">
             <div class="card">
-                <div class="card-header row">+
+                <div class="card-header row">
                      <p>Dashboard </p>
                     <p>(  You are logged in!)</p>
                 </div>
